@@ -1,0 +1,20 @@
+{
+  "presets": ["@babel/typescript", ["@babel/env", { "targets": { "node": "8" } }]],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "root": ["./src"],
+        "alias": { "@": "./src" }
+      }
+    ]
+  ],
+  "env": {
+    "production": {
+      "presets": ["minify"],
+      "plugins": ["transform-inline-environment-variables"],
+      "sourceMaps": "inline"
+    }
+  },
+  "comments": false
+}
