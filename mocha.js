@@ -1,1 +1,3 @@
-require('@babel/register')({ extensions: ['.ts', '.tsx'] });
+require("@babel/register")({ extensions: [".ts", ".tsx"] });
+const dotenv = require("dotenv");
+dotenv.config();

@@ -6,12 +6,14 @@ const GoogleStrategy = google.OAuth2Strategy;
 passport.use(
   new GoogleStrategy(
     {
-      clientID: "test",
-      clientSecret: "test",
+      clientID: process.env.CLIENTID,
+      clientSecret: process.env.CLIENTSECRET,
       callbackURL: "http://localhost:3000/login/google/callback"
     },
     (accessToken, refreshToken, profile, cb) => {
-      return cb(null, profile);
+      console.log("accessToken", accessToken);
+      console.log("profile", profile);
+      return cb(null, { test: "lcc3108 test" });
     }
   )
 );
