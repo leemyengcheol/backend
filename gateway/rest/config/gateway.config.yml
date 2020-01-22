@@ -1,0 +1,49 @@
+http:
+  port: 9000
+admin:
+  port: 9876
+  host: localhost
+apiEndpoints:
+  gql-gateway:
+    host: localhost
+    paths: "/api"
+  login:
+    host: localhost
+    paths: "/"
+  callback:
+    host: localhost
+    paths: "/callback"
+serviceEndpoints:
+  gql:
+    url: "http://localhost:4001/"
+  login:
+    url: "http://localhost:3000/login/google"
+policies:
+  - basic-auth
+  - cors
+  - expression
+  - key-auth
+  - log
+  - oauth2
+  - proxy
+  - rate-limit
+pipelines:
+  - name: gql
+    apiEndpoints:
+      - gql-gateway
+
+    policies:
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
+      - proxy:
+          - action:
+              serviceEndpoint: gql
+              changeOrigin: true
+  - name: login
+    apiEndpoints:
+      - login
+    policies:
+      - proxy:
+          - action:
+              serviceEndpoint: login
+              changeOrigin: true

@@ -1,0 +1,36 @@
+{
+  "name": "etf",
+  "scripts": {
+    "dev": "NODE_ENV=test nodemon --legacy-watch src/* --exec babel-node --config-file ./.babelrc --extensions \".ts\" src/index.ts",
+    "build": "babel src --out-dir build --copy-files --extensions \".ts,.tsx\"",
+    "tslint": "tslint --project .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev:local": "NODE_ENV=test nodemon -r ./env.js ./src/index.ts --watch ./src -e ts --exec babel-node --config-file ./.babelrc --extensions \".ts\" src/index.ts",
+    "test:local:watch": "NODE_ENV=test nodemon -r ./env.js ./src/index.ts --watch ./src -e ts"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/node": "^7.7.4",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-typescript": "^7.7.2",
+    "@types/jsonwebtoken": "^8.3.6",
+    "@types/morgan": "^1.7.37",
+    "@types/node": "^12.12.11",
+    "apollo-server-types": "^0.2.10",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.1",
+    "tslint": "^5.20.1",
+    "tslint-config-standard": "^9.0.0",
+    "typescript": "^3.7.2"
+  },
+  "dependencies": {
+    "@apollo/gateway": "^0.11.7",
+    "apollo-server": "^2.9.16",
+    "graphql": "^14.5.8",
+    "jsonwebtoken": "^8.5.1"
+  }
+}

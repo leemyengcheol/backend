@@ -20,8 +20,8 @@ app.get(
     session: false
   }),
   (req, res, next) => {
-    console.log("res.req.IncomingMessage.user", res.req.IncomingMessage.user);
-    res.send(res.req.IncomingMessage.user);
+    console.log("res.req.IncomingMessage", res.req.user);
+    res.send(res.req.user);
   }
 );
 
